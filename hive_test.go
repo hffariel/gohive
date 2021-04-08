@@ -371,7 +371,7 @@ func TestSelect(t *testing.T) {
 			t.Fatal(cursor.Error())
 		}
 		if j != 6000 {
-			t.Fatalf("6000 rows expected here")
+			t.Fatalf("6000 rows expected here, found %d rows", j)
 		}
 	}
 	closeAll(t, connection, cursor)
@@ -512,7 +512,7 @@ func TestSelectNull(t *testing.T) {
 	if cursor.Error() != nil {
 		t.Fatal(cursor.Error())
 	}
-	if !cursor.Finished() {
+	if !cursor.Finished() {	
 		t.Fatal("Finished should be true")
 	}
 	j := 0
@@ -548,7 +548,7 @@ func TestSelectNull(t *testing.T) {
 		t.Fatal(cursor.Error())
 	}
 	if j != 6000 {
-		t.Fatalf("6000 rows expected here")
+		t.Fatalf("6000 rows expected here, found %d", j)
 	}
 	closeAll(t, connection, cursor)
 }
